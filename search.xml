@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>从大规模来理解Back Translation的作用</title>
+    <url>/2019/12/26/blog_tech/ml/algo/nlp/mt/data_aug/bt_at_scale/</url>
+    <content><![CDATA[<p>论文链接: <a href="https://arxiv.org/abs/1808.09381" target="_blank" rel="noopener">Understanding Back-Translation at Scale</a></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>在NMT领域，利用单语语料的方法有:</p>
+<ul>
+<li>language model fusion</li>
+<li>back translation</li>
+<li>dual learning</li>
+</ul>
+<p>Back Translation是一种在NMT领域非常常用的单语数据增强方法，其操作简单且效果好，所以在工业界被大规模应用。本论文论证了: Back Translation的新增语料可以是在真实平行语料的几倍的情况下持续带来收益（BLEU的提升），并且重点比较了几种不同的采样方式的收益情况。</p>
+<h1 id="本论文主要贡献"><a href="#本论文主要贡献" class="headerlink" title="本论文主要贡献"></a>本论文主要贡献</h1><ol>
+<li>分析了源端文本生成的采样方式(noising sampling vs beam search / greedy search)</li>
+<li>比较了加入synthetic data的收益和加入真实双语语料的收益</li>
+</ol>
+<h1 id="Beam-Search-Greedy-Search-VS-sampling"><a href="#Beam-Search-Greedy-Search-VS-sampling" class="headerlink" title="Beam Search / Greedy Search VS sampling"></a>Beam Search / Greedy Search VS sampling</h1><p>Greedy Search / Beam search的本质是找到满足最大后验概率的source-side sentence. 这个导致的问题是在ambiguous的情况下，它总会选出the most likely alternative，因此降低了语对的丰富性。从概率分布的角度来看，Beam / Greedy focus在模型分布的head部分，而忽略了整体的概率分布。</p>
+<h1 id="Proposed-Strategy"><a href="#Proposed-Strategy" class="headerlink" title="Proposed Strategy"></a>Proposed Strategy</h1><p>作者提出的sample方法是：</p>
+<ol>
+<li>sampling restricted to the k most likely words: 介于最大后验和完全随机sampling之间</li>
+<li>add noise to beam search outputs<ul>
+<li>以0.1的概率随机删除word</li>
+<li>以0.1的概率随机将word替换成填充token</li>
+<li>随机变换word的位置(距离不超过3个位置)</li>
+</ul>
+</li>
+</ol>
+<h1 id="实验结论"><a href="#实验结论" class="headerlink" title="实验结论"></a>实验结论</h1><p>5M bitext, 24M synthetic  data</p>
+<h2 id="BT生成方式对翻译模型收益的影响"><a href="#BT生成方式对翻译模型收益的影响" class="headerlink" title="BT生成方式对翻译模型收益的影响"></a>BT生成方式对翻译模型收益的影响</h2><ol>
+<li>Non-MAP methods (sampling / beam + noise) 比 MAP methods(pure beam search and greedy)高0.8-1.1 BLEU。</li>
+<li>Monolingual data 达到一定规模时，Non-MAP methods比只用bitext的模型高1.7-2 BLEU</li>
+<li>Top-k sampling的方法比beam + noise效果更好，但是效率低</li>
+<li>在bitext多的情况下，使用Non-MAP methods比较好。但是在bitext量少时，使用Non-MAP methods不如MAP methods，这是因为bitext少时，back translation 本身质量很差，Non-MAP 方法进一步使质量下降</li>
+</ol>
+<h2 id="比较Bitext和synthetic-data对模型收益的影响"><a href="#比较Bitext和synthetic-data对模型收益的影响" class="headerlink" title="比较Bitext和synthetic data对模型收益的影响"></a>比较Bitext和synthetic data对模型收益的影响</h2><p>实验结果表明，相同规模，相同target side的BT data的收益是bitext的83%</p>
+<h2 id="Monolingual-data的领域如何影响模型性能"><a href="#Monolingual-data的领域如何影响模型性能" class="headerlink" title="Monolingual data的领域如何影响模型性能"></a>Monolingual data的领域如何影响模型性能</h2><ol>
+<li>在monolingual data的领域与test set match的情况下，BT data的收益与bitext几乎一样</li>
+<li>与test set领域不match的时候，BT data的收益会大打折扣，不过仍有收益</li>
+</ol>
+<h1 id="其他实验结论"><a href="#其他实验结论" class="headerlink" title="其他实验结论"></a>其他实验结论</h1><h2 id="Upsampling-bitext对不同BT生成方式的影响"><a href="#Upsampling-bitext对不同BT生成方式的影响" class="headerlink" title="Upsampling bitext对不同BT生成方式的影响"></a>Upsampling bitext对不同BT生成方式的影响</h2><ol>
+<li>Beam and greedy benefit a lot from higher rates which results in training more on the bitext data. 因为bitext的variation更多，对MAP methods来说，更多地在bitext训练的收益更大</li>
+<li>Non-MAP methods (sampling / beam + noise) 在没upsampling bitext的时候，性能更好。因为sampling synthetic data已经提供了足够的variation</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>机器学习</category>
+        <category>算法</category>
+        <category>NLP</category>
+        <category>机器翻译</category>
+        <category>数据增强</category>
+      </categories>
+      <tags>
+        <tag>论文笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>机器翻译领域适应的几种方法</title>
     <url>/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/</url>
     <content><![CDATA[<h1 id="论文提出背景"><a href="#论文提出背景" class="headerlink" title="论文提出背景"></a>论文提出背景</h1><p>论文首先提出当前的技术在领域适应机器翻译(domain-specific machine translation)方面的不足:</p>
@@ -65,8 +120,9 @@
 <p><em>对于NMT, model level interpolation对应了ensemble技术，instance level interpolation在NMT中的体现是: 在目标函数中赋权值</em></p>
 <h1 id="4-NMT怎样解决Domain-Adaptation"><a href="#4-NMT怎样解决Domain-Adaptation" class="headerlink" title="4. NMT怎样解决Domain Adaptation"></a>4. NMT怎样解决Domain Adaptation</h1><h2 id="Data-Centric-1"><a href="#Data-Centric-1" class="headerlink" title="Data Centric"></a>Data Centric</h2><h3 id="使用in-domain-monolingual-corpora"><a href="#使用in-domain-monolingual-corpora" class="headerlink" title="使用in-domain monolingual corpora"></a>使用in-domain monolingual corpora</h3><h3 id="使用Synthetic-Parallel-Corpora"><a href="#使用Synthetic-Parallel-Corpora" class="headerlink" title="使用Synthetic Parallel Corpora"></a>使用Synthetic Parallel Corpora</h3><ul>
 <li>back translation</li>
-<li>joint training<h3 id="使用Out-of-domain-Parallel-Corpora"><a href="#使用Out-of-domain-Parallel-Corpora" class="headerlink" title="使用Out-of-domain Parallel Corpora"></a>使用Out-of-domain Parallel Corpora</h3>训练混合领域的机器翻译模型，使得它可以在提升in-domain翻译效果的同时不损害out-of-domain的效果。</li>
+<li>joint training</li>
 </ul>
+<h3 id="使用Out-of-domain-Parallel-Corpora"><a href="#使用Out-of-domain-Parallel-Corpora" class="headerlink" title="使用Out-of-domain Parallel Corpora"></a>使用Out-of-domain Parallel Corpora</h3><p>训练混合领域的机器翻译模型，使得它可以在提升in-domain翻译效果的同时不损害out-of-domain的效果。</p>
 <ol>
 <li>Multi-domain model</li>
 </ol>
@@ -80,8 +136,9 @@
 <ul>
 <li>Wang et al. (2017a) 提出，使用句子的embedding来从out-of-domain语料中挑选出和in-domain语料相近的句子</li>
 <li>Van der Wees et al. (2017) 提出了一种动态的数据选择方法，在不同的training epoch选择不同的训练集子集来进行训练。实验结论是: “gradually decreasing the training data based on the in-domain similarity gives the best performance.”</li>
-<li>ps:目前(截止2018年6月论文发表时)并没有论文尝试结合以上data centric的方法*<h2 id="Model-centric"><a href="#Model-centric" class="headerlink" title="Model centric"></a>Model centric</h2><h3 id="Training-objective-centric"><a href="#Training-objective-centric" class="headerlink" title="Training objective centric"></a>Training objective centric</h3>这类方法指的是改变训练目标函数，或者改变优化的方法。</li>
 </ul>
+<p><em>ps:目前(截止2018年6月论文发表时)并没有论文尝试结合以上data centric的方法</em></p>
+<h2 id="Model-centric"><a href="#Model-centric" class="headerlink" title="Model centric"></a>Model centric</h2><h3 id="Training-objective-centric"><a href="#Training-objective-centric" class="headerlink" title="Training objective centric"></a>Training objective centric</h3><p>这类方法指的是改变训练目标函数，或者改变优化的方法。</p>
 <ol>
 <li>Instance weighting: </li>
 <li>Cost weighting: <ul>
@@ -91,7 +148,10 @@
 </li>
 <li>Fine tuning: 先在out-of-domain语料上训练模型，然后在in-domain corpus上进行fine tune。</li>
 <li>Mixed Fine Tuning: 在fine tune的时候混合上out-of-domain corpus</li>
-<li>Regularization: <h3 id="Architecture-centric"><a href="#Architecture-centric" class="headerlink" title="Architecture centric"></a>Architecture centric</h3>在这类方法中，NMT的架构被修改。</li>
+<li>Regularization: </li>
+</ol>
+<h3 id="Architecture-centric"><a href="#Architecture-centric" class="headerlink" title="Architecture centric"></a>Architecture centric</h3><p>在这类方法中，NMT的架构被修改。</p>
+<ol>
 <li>Deep Fusion： 在decoder端融合，深度融合in-domain RNNLM和NMT 成一个decoder(方法: concatenating hidden states )<ul>
 <li>Domhan and Hieber (2017)提出可以同时训练RNNLM和NMT</li>
 </ul>
@@ -99,18 +159,32 @@
 <li>Domain discriminator<br> 在encoder基础上加上一层FFNN,作为判别器，使用attention来预测句子的domain。判别器和NMT网络同时优化。</li>
 <li>Domain control<ul>
 <li>在embedding层加入word-level feature的方法来加入domain信息。在每一个word上加上domain tag。</li>
-<li>使用TF-IDF的方法来预测input sentence的domain tag<h3 id="Decoding-centric"><a href="#Decoding-centric" class="headerlink" title="Decoding centric"></a>Decoding centric</h3>关注decoding算法。</li>
+<li>使用TF-IDF的方法来预测input sentence的domain tag</li>
 </ul>
 </li>
+</ol>
+<h3 id="Decoding-centric"><a href="#Decoding-centric" class="headerlink" title="Decoding centric"></a>Decoding centric</h3><p>关注decoding算法。</p>
+<ol>
 <li>Shallow Fusion: next word hypotheses generated by an NMT model is rescored by the weighted sum of the NMT and RNNLM probabilities</li>
 <li>Ensemble: ensemble the out-of-domain domain and the fine tuned in-domain models</li>
-<li>Neutral Lattice Search: ??<h1 id="真实场景下的领域适应"><a href="#真实场景下的领域适应" class="headerlink" title="真实场景下的领域适应"></a>真实场景下的领域适应</h1><h1 id="未来探索方向"><a href="#未来探索方向" class="headerlink" title="未来探索方向"></a>未来探索方向</h1></li>
+<li>Neutral Lattice Search: ??</li>
 </ol>
-<ul>
+<h1 id="真实场景下的领域适应"><a href="#真实场景下的领域适应" class="headerlink" title="真实场景下的领域适应"></a>真实场景下的领域适应</h1><h1 id="未来探索方向"><a href="#未来探索方向" class="headerlink" title="未来探索方向"></a>未来探索方向</h1><ul>
 <li>Multilingual and Multi-Domain Adaptation</li>
 <li>Adversarial Domain Adaptation and Domain Generation</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>机器学习</category>
+        <category>算法</category>
+        <category>NLP</category>
+        <category>机器翻译</category>
+        <category>领域适应</category>
+      </categories>
+      <tags>
+        <tag>未完成</tag>
+      </tags>
   </entry>
   <entry>
     <title>Knowledge Distillation 简介</title>

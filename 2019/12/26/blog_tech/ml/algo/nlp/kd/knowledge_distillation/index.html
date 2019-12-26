@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小小的机器世界">
 <meta property="og:description" content="论文的链接:Distilling the Knowledge in a Neural Network 这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。 1. Intro 论文提出的背景:在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-26T07:07:57.293Z">
+<meta property="og:updated_time" content="2019-12-26T07:24:53.884Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -218,16 +218,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
-            
-            Schedule
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -340,7 +330,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-12-26T15:07:57+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-12-26T15:24:53+08:00">
                 2019-12-26
               </time>
             
@@ -625,7 +615,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -636,7 +626,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -891,6 +881,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'f5OcJzQfb249jE1OuFsWxodS-gzGzoHsz',
+        appKey: '1wLR7Qi9iuSd2NljRXkARbjF',
+        placeholder: 'Please Comment Here',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
