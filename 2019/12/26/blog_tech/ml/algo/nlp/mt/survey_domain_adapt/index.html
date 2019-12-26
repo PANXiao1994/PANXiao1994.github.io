@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;">
+<meta name="description" content="论文提出背景论文首先提出当前的技术在领域适应机器翻译(domain-specific machine translation)方面的不足:  除了英语或者某些欧洲语系的语言，高质量的平行语料并不充足 缺少领域语料 SMT 和 NMT 在low-resource的场景下，领域适应翻译都做的不好  总而言之一句话:   for the majority of language pairs and do">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器翻译领域适应的几种方法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;mt&#x2F;survey_domain_adapt&#x2F;">
 <meta property="og:site_name" content="小小的机器世界">
+<meta property="og:description" content="论文提出背景论文首先提出当前的技术在领域适应机器翻译(domain-specific machine translation)方面的不足:  除了英语或者某些欧洲语系的语言，高质量的平行语料并不充足 缺少领域语料 SMT 和 NMT 在low-resource的场景下，领域适应翻译都做的不好  总而言之一句话:   for the majority of language pairs and do">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-12T06:35:22.289Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;mt&#x2F;survey_domain_adapt&#x2F;overview.png">
+<meta property="og:updated_time" content="2019-12-26T07:19:15.180Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;mt&#x2F;survey_domain_adapt&#x2F;overview.png">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/"/>
 
 
 
 
 
-  <title>tags | 小小的机器世界</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>机器翻译领域适应的几种方法 | 小小的机器世界</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -280,40 +284,282 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="潘小小">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小的机器世界">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                2 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" style="font-size: 30px; color: #111">未完成</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" style="font-size: 12px; color: #ccc">论文笔记</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">机器翻译领域适应的几种方法</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-26T15:11:35+08:00">
+                2019-12-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-12-26T15:19:15+08:00">
+                2019-12-26
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/" class="leancloud_visitors" data-flag-title="机器翻译领域适应的几种方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="论文提出背景"><a href="#论文提出背景" class="headerlink" title="论文提出背景"></a>论文提出背景</h1><p>论文首先提出当前的技术在领域适应机器翻译(domain-specific machine translation)方面的不足:</p>
+<ul>
+<li>除了英语或者某些欧洲语系的语言，高质量的平行语料并不充足</li>
+<li>缺少领域语料</li>
+<li>SMT 和 NMT 在low-resource的场景下，领域适应翻译都做的不好</li>
+</ul>
+<p>总而言之一句话: </p>
+<blockquote>
+<p>for the majority of language pairs and domains, only few or no parallel corpora are available.</p>
+</blockquote>
+<p>而后论文又点出了领域适应机器翻译的重要性。</p>
+<ul>
+<li>现实场景中领域适应的机器翻译应用比通用机器翻译更广泛</li>
+<li>在相关领域内，通用机器翻译的效果通常差于领域适应的机器翻译</li>
+</ul>
+<p>最后作者给出了Domain Adaptation for Neural Machine Translation的定义:</p>
+<blockquote>
+<p>Leveraging out-of-domain parallel corpora and in-domain monolingual corpora to improve in-domain translation is known as domain adaptation for MT </p>
+</blockquote>
+<h1 id="论文主要解决的问题"><a href="#论文主要解决的问题" class="headerlink" title="论文主要解决的问题"></a>论文主要解决的问题</h1><p>怎样利用out-of-domain语料来提升in-domain machine translation的性能, 同时，相似的方法也可以被迁移到low resource language的翻译上去</p>
+<h1 id="SMT怎样解决Domain-Adaptation"><a href="#SMT怎样解决Domain-Adaptation" class="headerlink" title="SMT怎样解决Domain Adaptation"></a>SMT怎样解决Domain Adaptation</h1><p>作者提出了2个方向: 一是从数据入手，二是从模型入手<br><img src="overview.png" alt="" title="Overview of domain adaptation for NMT"></p>
+<h2 id="Data-Centric"><a href="#Data-Centric" class="headerlink" title="Data Centric"></a>Data Centric</h2><p>Data Centric, 顾名思义，就是从数据入手，重点关注数据如何被使用。作者将SMT用到的data分为3类:</p>
+<ul>
+<li>In-domain monolingual corpora</li>
+<li>Synthetic corpora</li>
+<li>Parallel corpora</li>
+</ul>
+<h3 id="Out-of-domain-data充足的scenario"><a href="#Out-of-domain-data充足的scenario" class="headerlink" title="Out-of-domain data充足的scenario"></a>Out-of-domain data充足的scenario</h3><ul>
+<li>关键词: Selection<br>使用in-domain数据和out-of-domain数据来分别训练模型，并且用这2个模型给out-of-domain data打分，最后根据分数来从out-of-domain data里选择出一部分data来训练in-domain模型。</li>
+<li>打分模型可以使用: (1) Language Model (2) Joint models (3) CNN models</li>
+</ul>
+<h3 id="平行语料不足的scenario"><a href="#平行语料不足的scenario" class="headerlink" title="平行语料不足的scenario"></a>平行语料不足的scenario</h3><ul>
+<li>关键词: Generation</li>
+</ul>
+<ol>
+<li>生产伪平行语料（句对）:<ul>
+<li>Using Information Retrieval</li>
+<li>Using Self-enhancing or parallel word embeddings</li>
+</ul>
+</li>
+<li>生产单语n-grams和平行短语对(phrase pairs)</li>
+</ol>
+<p><em>大多数Data Centric方法都可以应用在NMT上，但是，由于大多数方法使用的data selection 或者generation的criteria和NMT没有联系，所以这些方法不能明显提升NMT</em></p>
+<h2 id="Model-Centric"><a href="#Model-Centric" class="headerlink" title="Model Centric"></a>Model Centric</h2><p>Model Centric指的是从利用不同领域的模型入手来解决Domain Adaptation问题(感觉又废话了)，入手点可以是:<br>1）Model level interpolation<br>不同的翻译模型，各自在不同的语料上训练。这些模型之后被组合，可以得到最好的效果。<br>2)  Instance level interpolation<br>也即instance weighting, 给每个instance加不同的权重，来进行训练。或者，用data re-sampling的方法给语料加权重。</p>
+<ul>
+<li>修改目标函数</li>
+<li>修改NMT网络架构</li>
+<li>修改解码算法</li>
+</ul>
+<h3 id="Model-level-interpolation"><a href="#Model-level-interpolation" class="headerlink" title="Model level interpolation"></a>Model level interpolation</h3><ul>
+<li>关键词: 模型集成<br>用不同的语料去训练不同的模型，最后集成这些模型去取的一个更强的模型</li>
+</ul>
+<h3 id="Instance-level-interpolation"><a href="#Instance-level-interpolation" class="headerlink" title="Instance level interpolation"></a>Instance level interpolation</h3><ul>
+<li>关键词: Instance weighting</li>
+</ul>
+<ol>
+<li>先用规则或者统计的方式给每个instance加权重，然后训练模型的时候带上权重。</li>
+<li>使用re-sampling来计算权重</li>
+</ol>
+<p><em>对于NMT, model level interpolation对应了ensemble技术，instance level interpolation在NMT中的体现是: 在目标函数中赋权值</em></p>
+<h1 id="4-NMT怎样解决Domain-Adaptation"><a href="#4-NMT怎样解决Domain-Adaptation" class="headerlink" title="4. NMT怎样解决Domain Adaptation"></a>4. NMT怎样解决Domain Adaptation</h1><h2 id="Data-Centric-1"><a href="#Data-Centric-1" class="headerlink" title="Data Centric"></a>Data Centric</h2><h3 id="使用in-domain-monolingual-corpora"><a href="#使用in-domain-monolingual-corpora" class="headerlink" title="使用in-domain monolingual corpora"></a>使用in-domain monolingual corpora</h3><h3 id="使用Synthetic-Parallel-Corpora"><a href="#使用Synthetic-Parallel-Corpora" class="headerlink" title="使用Synthetic Parallel Corpora"></a>使用Synthetic Parallel Corpora</h3><ul>
+<li>back translation</li>
+<li>joint training<h3 id="使用Out-of-domain-Parallel-Corpora"><a href="#使用Out-of-domain-Parallel-Corpora" class="headerlink" title="使用Out-of-domain Parallel Corpora"></a>使用Out-of-domain Parallel Corpora</h3>训练混合领域的机器翻译模型，使得它可以在提升in-domain翻译效果的同时不损害out-of-domain的效果。</li>
+</ul>
+<ol>
+<li>Multi-domain model</li>
+</ol>
+<ul>
+<li>给源端句子加上domain相关的tag</li>
+<li>对小语料进行上采样，来保证训练语料的平衡性</li>
+</ul>
+<ol start="2">
+<li>Data selection<br>使用SMT的data selection方法，并不能很好地提升NMT的性能，因为这里使用的数据选择的criteria和NMT不一致。</li>
+</ol>
+<ul>
+<li>Wang et al. (2017a) 提出，使用句子的embedding来从out-of-domain语料中挑选出和in-domain语料相近的句子</li>
+<li>Van der Wees et al. (2017) 提出了一种动态的数据选择方法，在不同的training epoch选择不同的训练集子集来进行训练。实验结论是: “gradually decreasing the training data based on the in-domain similarity gives the best performance.”</li>
+<li>ps:目前(截止2018年6月论文发表时)并没有论文尝试结合以上data centric的方法*<h2 id="Model-centric"><a href="#Model-centric" class="headerlink" title="Model centric"></a>Model centric</h2><h3 id="Training-objective-centric"><a href="#Training-objective-centric" class="headerlink" title="Training objective centric"></a>Training objective centric</h3>这类方法指的是改变训练目标函数，或者改变优化的方法。</li>
+</ul>
+<ol>
+<li>Instance weighting: </li>
+<li>Cost weighting: <ul>
+<li>Chen et al. (2017a) 使用domain classifier来修改cost function: 使用dev data训练domain classifier, 其的输出成为cost function中的domain权重。</li>
+<li>Wang et al. (2018) 提出joint framework of sentence selection and weighting for NMT</li>
+</ul>
+</li>
+<li>Fine tuning: 先在out-of-domain语料上训练模型，然后在in-domain corpus上进行fine tune。</li>
+<li>Mixed Fine Tuning: 在fine tune的时候混合上out-of-domain corpus</li>
+<li>Regularization: <h3 id="Architecture-centric"><a href="#Architecture-centric" class="headerlink" title="Architecture centric"></a>Architecture centric</h3>在这类方法中，NMT的架构被修改。</li>
+<li>Deep Fusion： 在decoder端融合，深度融合in-domain RNNLM和NMT 成一个decoder(方法: concatenating hidden states )<ul>
+<li>Domhan and Hieber (2017)提出可以同时训练RNNLM和NMT</li>
+</ul>
+</li>
+<li>Domain discriminator<br> 在encoder基础上加上一层FFNN,作为判别器，使用attention来预测句子的domain。判别器和NMT网络同时优化。</li>
+<li>Domain control<ul>
+<li>在embedding层加入word-level feature的方法来加入domain信息。在每一个word上加上domain tag。</li>
+<li>使用TF-IDF的方法来预测input sentence的domain tag<h3 id="Decoding-centric"><a href="#Decoding-centric" class="headerlink" title="Decoding centric"></a>Decoding centric</h3>关注decoding算法。</li>
+</ul>
+</li>
+<li>Shallow Fusion: next word hypotheses generated by an NMT model is rescored by the weighted sum of the NMT and RNNLM probabilities</li>
+<li>Ensemble: ensemble the out-of-domain domain and the fine tuned in-domain models</li>
+<li>Neutral Lattice Search: ??<h1 id="真实场景下的领域适应"><a href="#真实场景下的领域适应" class="headerlink" title="真实场景下的领域适应"></a>真实场景下的领域适应</h1><h1 id="未来探索方向"><a href="#未来探索方向" class="headerlink" title="未来探索方向"></a>未来探索方向</h1></li>
+</ol>
+<ul>
+<li>Multilingual and Multi-Domain Adaptation</li>
+<li>Adversarial Domain Adaptation and Domain Generation</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/26/blog_tech/ml/algo/nlp/kd/knowledge_distillation/" rel="next" title="Knowledge Distillation 简介">
+                <i class="fa fa-chevron-left"></i> Knowledge Distillation 简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -355,8 +601,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -426,6 +681,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#论文提出背景"><span class="nav-number">1.</span> <span class="nav-text">论文提出背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#论文主要解决的问题"><span class="nav-number">2.</span> <span class="nav-text">论文主要解决的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SMT怎样解决Domain-Adaptation"><span class="nav-number">3.</span> <span class="nav-text">SMT怎样解决Domain Adaptation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Centric"><span class="nav-number">3.1.</span> <span class="nav-text">Data Centric</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Out-of-domain-data充足的scenario"><span class="nav-number">3.1.1.</span> <span class="nav-text">Out-of-domain data充足的scenario</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平行语料不足的scenario"><span class="nav-number">3.1.2.</span> <span class="nav-text">平行语料不足的scenario</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-Centric"><span class="nav-number">3.2.</span> <span class="nav-text">Model Centric</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-level-interpolation"><span class="nav-number">3.2.1.</span> <span class="nav-text">Model level interpolation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Instance-level-interpolation"><span class="nav-number">3.2.2.</span> <span class="nav-text">Instance level interpolation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-NMT怎样解决Domain-Adaptation"><span class="nav-number">4.</span> <span class="nav-text">4. NMT怎样解决Domain Adaptation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Centric-1"><span class="nav-number">4.1.</span> <span class="nav-text">Data Centric</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用in-domain-monolingual-corpora"><span class="nav-number">4.1.1.</span> <span class="nav-text">使用in-domain monolingual corpora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Synthetic-Parallel-Corpora"><span class="nav-number">4.1.2.</span> <span class="nav-text">使用Synthetic Parallel Corpora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Out-of-domain-Parallel-Corpora"><span class="nav-number">4.1.3.</span> <span class="nav-text">使用Out-of-domain Parallel Corpora</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-centric"><span class="nav-number">4.2.</span> <span class="nav-text">Model centric</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-objective-centric"><span class="nav-number">4.2.1.</span> <span class="nav-text">Training objective centric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture-centric"><span class="nav-number">4.2.2.</span> <span class="nav-text">Architecture centric</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decoding-centric"><span class="nav-number">4.2.3.</span> <span class="nav-text">Decoding centric</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#真实场景下的领域适应"><span class="nav-number">5.</span> <span class="nav-text">真实场景下的领域适应</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未来探索方向"><span class="nav-number">6.</span> <span class="nav-text">未来探索方向</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

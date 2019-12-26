@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="论文笔记," />
 
 
 
@@ -79,12 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;">
+<meta name="description" content="论文的链接:Distilling the Knowledge in a Neural Network 这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。 1. Intro 论文提出的背景:在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，">
+<meta name="keywords" content="论文笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Knowledge Distillation 简介">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;">
 <meta property="og:site_name" content="小小的机器世界">
+<meta property="og:description" content="论文的链接:Distilling the Knowledge in a Neural Network 这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。 1. Intro 论文提出的背景:在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-12T06:35:22.289Z">
+<meta property="og:updated_time" content="2019-12-26T07:07:57.293Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -115,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/26/blog_tech/ml/algo/nlp/kd/knowledge_distillation/"/>
 
 
 
 
 
-  <title>tags | 小小的机器世界</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Knowledge Distillation 简介 | 小小的机器世界</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -280,40 +283,282 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/blog_tech/ml/algo/nlp/kd/knowledge_distillation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="潘小小">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小的机器世界">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                2 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/" style="font-size: 30px; color: #111">未完成</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" style="font-size: 12px; color: #ccc">论文笔记</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Knowledge Distillation 简介</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-26T14:38:17+08:00">
+                2019-12-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-12-26T15:07:57+08:00">
+                2019-12-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/NLP/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">知识蒸馏</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/26/blog_tech/ml/algo/nlp/kd/knowledge_distillation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/12/26/blog_tech/ml/algo/nlp/kd/knowledge_distillation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/26/blog_tech/ml/algo/nlp/kd/knowledge_distillation/" class="leancloud_visitors" data-flag-title="Knowledge Distillation 简介">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>论文的链接:<a href="https://arxiv.org/abs/1503.02531" target="_blank" rel="noopener">Distilling the Knowledge in a Neural Network</a></p>
+<p>这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。</p>
+<h1 id="1-Intro"><a href="#1-Intro" class="headerlink" title="1. Intro"></a>1. Intro</h1><ol>
+<li>论文提出的背景:<br>在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，因此产生了“知识蒸馏”的想法</li>
+<li>“思想歧路”<br>人们之前会觉得，要保留相近的知识量，必须保留相近规模的模型。</li>
+<li>论文提出的思路：<br>让新模型直接学习input vector到output vector的映射关系即可。<ul>
+<li>正常training过程: 对ground truth求极大似然</li>
+<li>KD的training过程: 用large model的class probabilities作为soft targets</li>
+</ul>
+</li>
+</ol>
+<h1 id="2-知识蒸馏的方法"><a href="#2-知识蒸馏的方法" class="headerlink" title="2. 知识蒸馏的方法"></a>2. 知识蒸馏的方法</h1><ul>
+<li>softmax函数: $ q_{i}=\frac{\exp \left(z_{i} / T\right)}{\sum_{j} \exp \left(z_{j} / T\right)} $<br>Normally, T = 1。 T越高，softmax的output probability distribution越平滑</li>
+</ul>
+<h2 id="2-1-Simplest-way"><a href="#2-1-Simplest-way" class="headerlink" title="2.1. Simplest way"></a>2.1. Simplest way</h2><p>Teacher Model 和 Student Model同时input transfer set 的 cases, 用Teacher Model产生的softmax distribution (with high temperature) 来作为soft target。</p>
+<ul>
+<li>保证Teacher Model和Student Model用相同的temperature</li>
+<li>Student Model 训练完毕以后恢复到Temperature = 1<br>如果Transfer set是labelled data, 那么加入correct label的信息（weighted sum of two objectives）会提升训练Student Model的效果。Objective function可以由以下2部分组成:</li>
+</ul>
+<ol>
+<li>和soft target之间的Cross entropy，temperature和teacher model保持一致</li>
+<li>和ground truth之间的Cross entropy, temperature为1</li>
+</ol>
+<ul>
+<li>实验发现，第二部分所占比重比较小的时候，能产生最好的结果。<br>由于soft target产生的gradient的magnitude的scale被乘上了  $1 / T^{2}$的系数，所以在同时使用soft target和hard target的时候，需要在soft target之前乘上 $T^{2}$的系数。</li>
+</ul>
+<h2 id="2-2-直接用logits作为soft-target是distillation的一种特殊情形"><a href="#2-2-直接用logits作为soft-target是distillation的一种特殊情形" class="headerlink" title="2.2. 直接用logits作为soft target是distillation的一种特殊情形"></a>2.2. 直接用logits作为soft target是distillation的一种特殊情形</h2><p>单个case贡献的loss:<br>$$ \frac{\partial C}{\partial z_{i}}=\frac{1}{T}\left(q_{i}-p_{i}\right)=\frac{1}{T}\left(\frac{e^{z_{i} / T}}{\sum_{j} e^{z_{j} / T}}-\frac{e^{v_{i} / T}}{\sum_{j} e^{v_{j} / T}}\right) $$<br>当T很大时，<br>$$\frac{\partial C}{\partial z_{i}} \approx \frac{1}{T}\left(\frac{1+z_{i} / T}{N+\sum_{j} z_{j} / T}-\frac{1+v_{i} / T}{N+\sum_{j} v_{j} / T}\right)$$<br>如果再加上logits是零均值的假设<br>$$ \sum_{j} z_{j}=\sum_{j} v_{j}=0 $$<br>那么上面的公式可以简化成<br>$$ \frac{\partial C}{\partial z_{i}} \approx \frac{1}{N T^{2}}\left(z_{i}-v_{i}\right) $$<br>也就是等价于minimise<br>$$ 1 / 2\left(z_{i}-v_{i}\right)^{2} $$</p>
+<h2 id="2-3-关于温度T选择的讨论"><a href="#2-3-关于温度T选择的讨论" class="headerlink" title="2.3. 关于温度T选择的讨论"></a>2.3. 关于温度T选择的讨论</h2><ol>
+<li>Low Temperature: 对negative logits的关注较少。negative logits中大多数是very noisy的，因为在训练模型的时候没有对它们做任何的限制；但是最negative的logits可能包含了一些有用的信息。</li>
+<li>总的来说，T的选择和Student Model的大小有关，Student Model很小的时候，intermediate的温度就可以了（反正它也不能capture all knowledge）</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="tag"># 论文笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/12/blog_tech/hexo/" rel="next" title="手把手教你搭建Hexo博客">
+                <i class="fa fa-chevron-left"></i> 手把手教你搭建Hexo博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/26/blog_tech/ml/algo/nlp/mt/survey_domain_adapt/" rel="prev" title="机器翻译领域适应的几种方法">
+                机器翻译领域适应的几种方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -355,8 +600,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -426,6 +680,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Intro"><span class="nav-number">1.</span> <span class="nav-text">1. Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-知识蒸馏的方法"><span class="nav-number">2.</span> <span class="nav-text">2. 知识蒸馏的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Simplest-way"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. Simplest way</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-直接用logits作为soft-target是distillation的一种特殊情形"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 直接用logits作为soft target是distillation的一种特殊情形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-关于温度T选择的讨论"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 关于温度T选择的讨论</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
