@@ -79,16 +79,23 @@
 
 
 
-<meta name="description" content="论文的链接:Distilling the Knowledge in a Neural Network 这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。 1. Intro 论文提出的背景:在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，">
+<meta name="description" content="知识蒸馏是一种模型压缩方法，是一种基于“教师-学生网络思想”的训练方法，由于其简单，有效，在工业界被广泛应用。这一技术的理论来自于2015年Hinton发表的一篇神作:Distilling the Knowledge in a Neural Network Knowledge Distillation，简称KD，顾名思义，就是将已经训练好的模型包含的知识(”Knowledge”)，蒸馏(“Dist">
 <meta name="keywords" content="论文笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Knowledge Distillation 简介">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;">
 <meta property="og:site_name" content="小小的机器世界">
-<meta property="og:description" content="论文的链接:Distilling the Knowledge in a Neural Network 这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。 1. Intro 论文提出的背景:在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，">
+<meta property="og:description" content="知识蒸馏是一种模型压缩方法，是一种基于“教师-学生网络思想”的训练方法，由于其简单，有效，在工业界被广泛应用。这一技术的理论来自于2015年Hinton发表的一篇神作:Distilling the Knowledge in a Neural Network Knowledge Distillation，简称KD，顾名思义，就是将已经训练好的模型包含的知识(”Knowledge”)，蒸馏(“Dist">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-26T07:24:53.884Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;curve.jpeg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;kd-1.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;mnist.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;kd-2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;kd.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;kd-3.jpg">
+<meta property="og:updated_time" content="2020-01-29T08:11:27.854Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;26&#x2F;blog_tech&#x2F;ml&#x2F;algo&#x2F;nlp&#x2F;kd&#x2F;knowledge_distillation&#x2F;curve.jpeg">
 
 
 
@@ -330,8 +337,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-12-26T15:24:53+08:00">
-                2019-12-26
+              <time title="Post modified" itemprop="dateModified" datetime="2020-01-29T16:11:27+08:00">
+                2020-01-29
               </time>
             
           </span>
@@ -456,36 +463,129 @@
       
 
       
-        <p>论文的链接:<a href="https://arxiv.org/abs/1503.02531" target="_blank" rel="noopener">Distilling the Knowledge in a Neural Network</a></p>
-<p>这是由Hinton提出的神作。Knowledge Distillation，顾名思义，就是将已经训练好的模型包含的信息(”Knowledge”)，提取到另一个模型里面去。</p>
-<h1 id="1-Intro"><a href="#1-Intro" class="headerlink" title="1. Intro"></a>1. Intro</h1><ol>
-<li>论文提出的背景:<br>在实验中，效果最好的模型往往规模很大，并且由多个模型集成得到。而大模型不方便部署到服务中去，因此产生了“知识蒸馏”的想法</li>
-<li>“思想歧路”<br>人们之前会觉得，要保留相近的知识量，必须保留相近规模的模型。</li>
-<li>论文提出的思路：<br>让新模型直接学习input vector到output vector的映射关系即可。<ul>
-<li>正常training过程: 对ground truth求极大似然</li>
-<li>KD的training过程: 用large model的class probabilities作为soft targets</li>
-</ul>
-</li>
-</ol>
-<h1 id="2-知识蒸馏的方法"><a href="#2-知识蒸馏的方法" class="headerlink" title="2. 知识蒸馏的方法"></a>2. 知识蒸馏的方法</h1><ul>
-<li>softmax函数: $ q_{i}=\frac{\exp \left(z_{i} / T\right)}{\sum_{j} \exp \left(z_{j} / T\right)} $<br>Normally, T = 1。 T越高，softmax的output probability distribution越平滑</li>
-</ul>
-<h2 id="2-1-Simplest-way"><a href="#2-1-Simplest-way" class="headerlink" title="2.1. Simplest way"></a>2.1. Simplest way</h2><p>Teacher Model 和 Student Model同时input transfer set 的 cases, 用Teacher Model产生的softmax distribution (with high temperature) 来作为soft target。</p>
+        <p>知识蒸馏是一种模型压缩方法，是一种基于“教师-学生网络思想”的训练方法，由于其简单，有效，在工业界被广泛应用。这一技术的理论来自于2015年Hinton发表的一篇神作:<a href="https://arxiv.org/abs/1503.02531" target="_blank" rel="noopener">Distilling the Knowledge in a Neural Network</a></p>
+<p>Knowledge Distillation，简称KD，顾名思义，就是将已经训练好的模型包含的知识(”Knowledge”)，蒸馏(“Distill”)提取到另一个模型里面去。今天，我们就来简单读一下这篇论文，力求用简单的语言描述论文作者的主要思想。在本文中，我们将从背景和动机讲起，然后着重介绍“知识蒸馏”的方法，最后我会讨论“温度“这个名词:</p>
 <ul>
-<li>保证Teacher Model和Student Model用相同的temperature</li>
-<li>Student Model 训练完毕以后恢复到Temperature = 1<br>如果Transfer set是labelled data, 那么加入correct label的信息（weighted sum of two objectives）会提升训练Student Model的效果。Objective function可以由以下2部分组成:</li>
+<li><strong>温度</strong>: 我们都知道“蒸馏”需要在高温下进行，那么这个“蒸馏”的温度代表了什么，又是如何选取合适的温度？</li>
+</ul>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><h2 id="论文提出的背景"><a href="#论文提出的背景" class="headerlink" title="论文提出的背景:"></a>论文提出的背景:</h2><p>虽然在一般情况下，我们不会去区分训练和部署使用的模型，但是训练和部署之间存在着一定的不一致性:</p>
+<ul>
+<li>在训练过程中，我们需要使用复杂的模型，大量的计算资源，以便从非常大、高度冗余的数据集中提取出信息。在实验中，效果最好的模型往往规模很大，甚至由多个模型集成得到。而大模型不方便部署到服务中去，常见的瓶颈如下:</li>
 </ul>
 <ol>
-<li>和soft target之间的Cross entropy，temperature和teacher model保持一致</li>
-<li>和ground truth之间的Cross entropy, temperature为1</li>
+<li>推断速度慢</li>
+<li>对部署资源要求高(内存，显存等)</li>
 </ol>
 <ul>
-<li>实验发现，第二部分所占比重比较小的时候，能产生最好的结果。<br>由于soft target产生的gradient的magnitude的scale被乘上了  $1 / T^{2}$的系数，所以在同时使用soft target和hard target的时候，需要在soft target之前乘上 $T^{2}$的系数。</li>
+<li>在部署时，我们对延迟以及计算资源都有着严格的限制。</li>
 </ul>
-<h2 id="2-2-直接用logits作为soft-target是distillation的一种特殊情形"><a href="#2-2-直接用logits作为soft-target是distillation的一种特殊情形" class="headerlink" title="2.2. 直接用logits作为soft target是distillation的一种特殊情形"></a>2.2. 直接用logits作为soft target是distillation的一种特殊情形</h2><p>单个case贡献的loss:<br>$$ \frac{\partial C}{\partial z_{i}}=\frac{1}{T}\left(q_{i}-p_{i}\right)=\frac{1}{T}\left(\frac{e^{z_{i} / T}}{\sum_{j} e^{z_{j} / T}}-\frac{e^{v_{i} / T}}{\sum_{j} e^{v_{j} / T}}\right) $$<br>当T很大时，<br>$$\frac{\partial C}{\partial z_{i}} \approx \frac{1}{T}\left(\frac{1+z_{i} / T}{N+\sum_{j} z_{j} / T}-\frac{1+v_{i} / T}{N+\sum_{j} v_{j} / T}\right)$$<br>如果再加上logits是零均值的假设<br>$$ \sum_{j} z_{j}=\sum_{j} v_{j}=0 $$<br>那么上面的公式可以简化成<br>$$ \frac{\partial C}{\partial z_{i}} \approx \frac{1}{N T^{2}}\left(z_{i}-v_{i}\right) $$<br>也就是等价于minimise<br>$$ 1 / 2\left(z_{i}-v_{i}\right)^{2} $$</p>
-<h2 id="2-3-关于温度T选择的讨论"><a href="#2-3-关于温度T选择的讨论" class="headerlink" title="2.3. 关于温度T选择的讨论"></a>2.3. 关于温度T选择的讨论</h2><ol>
-<li>Low Temperature: 对negative logits的关注较少。negative logits中大多数是very noisy的，因为在训练模型的时候没有对它们做任何的限制；但是最negative的logits可能包含了一些有用的信息。</li>
-<li>总的来说，T的选择和Student Model的大小有关，Student Model很小的时候，intermediate的温度就可以了（反正它也不能capture all knowledge）</li>
+<p>因此，模型压缩（在保证性能的前提下减少模型的参数量）成为了一个重要的问题。而”模型蒸馏“属于模型压缩的一种方法。</p>
+<p><strong>插句题外话</strong>，我们可以从模型参数量和训练数据量之间的相对关系来理解underfitting和overfitting。AI领域的从业者可能对此已经习以为常，但是为了力求让小白也能读懂本文，还是引用我同事的解释（我印象很深）形象地说明一下:</p>
+<blockquote>
+<p>模型就像一个容器，训练数据中蕴含的知识就像是要装进容器里的水。当数据知识量(水量)超过模型所能建模的范围时(容器的容积)，加再多的数据也不能提升效果(水再多也装不进容器)，因为模型的表达空间有限(容器容积有限)，就会造成underfitting；而当模型的参数量大于已有知识所需要的表达空间时(容积大于水量，水装不满容器)，就会造成overfitting，即模型的bias会增大(想象一下摇晃半满的容器，里面水的形状是不稳定的)。</p>
+</blockquote>
+<h2 id="“思想歧路”"><a href="#“思想歧路”" class="headerlink" title="“思想歧路”"></a>“思想歧路”</h2><p>上面容器和水的比喻非常经典和贴切，但是会引起一个误解: 人们在直觉上会觉得，要保留相近的知识量，必须保留相近规模的模型。也就是说，一个模型的参数量基本决定了其所能捕获到的数据内蕴含的“知识”的量。</p>
+<p>这样的想法是基本正确的，但是需要注意的是:</p>
+<ol>
+<li>模型的参数量和其所能捕获的“知识“量之间并非稳定的线性关系(下图中的1)，而是接近边际收益逐渐减少的一种增长曲线(下图中的2和3)</li>
+<li>完全相同的模型架构和模型参数量，使用完全相同的训练数据，能捕获的“知识”量并不一定完全相同，另一个关键因素是训练的方法。合适的训练方法可以使得在模型参数总量比较小时，尽可能地获取到更多的“知识”(下图中的3与2曲线的对比).</li>
+</ol>
+<p><img src="curve.jpeg" alt=""></p>
+<h1 id="知识蒸馏的理论依据"><a href="#知识蒸馏的理论依据" class="headerlink" title="知识蒸馏的理论依据"></a>知识蒸馏的理论依据</h1><h2 id="Teacher-Model和Student-Model"><a href="#Teacher-Model和Student-Model" class="headerlink" title="Teacher Model和Student Model"></a>Teacher Model和Student Model</h2><p>知识蒸馏使用的是Teacher—Student模型，其中teacher是“知识”的输出者，student是“知识”的接受者。知识蒸馏的过程分为2个阶段:</p>
+<ol>
+<li>原始模型训练: 训练”Teacher模型”, 简称为Net-T，它的特点是模型相对复杂，也可以由多个分别训练的模型集成而成。我们对”Teacher模型”不作任何关于模型架构、参数量、是否集成方面的限制，唯一的要求就是，对于输入X, 其都能输出Y，其中Y经过softmax的映射，输出值对应相应类别的概率值。</li>
+<li>精简模型训练: 训练”Student模型”, 简称为Net-S，它是参数量较小、模型结构相对简单的单模型。同样的，对于输入X，其都能输出Y，Y经过softmax映射后同样能输出对应相应类别的概率值。</li>
+</ol>
+<p>在本论文中，作者将问题限定在<strong>分类问题</strong>下，或者其他本质上属于分类问题的问题，该类问题的共同点是模型最后会有一个softmax层，其输出值对应了相应类别的概率值。</p>
+<h2 id="知识蒸馏的关键点"><a href="#知识蒸馏的关键点" class="headerlink" title="知识蒸馏的关键点"></a>知识蒸馏的关键点</h2><p>如果回归机器学习最最基础的理论，我们可以很清楚地意识到一点(而这一点往往在我们深入研究机器学习之后被忽略): 机器学习<strong>最根本的目的</strong>在于训练出在某个问题上泛化能力强的模型。</p>
+<ul>
+<li>泛化能力强: 在某问题的所有数据上都能很好地反应输入和输出之间的关系，无论是训练数据，还是测试数据，还是任何属于该问题的未知数据。</li>
+</ul>
+<p>而现实中，由于我们不可能收集到某问题的所有数据来作为训练数据，并且新数据总是在源源不断的产生，因此我们只能退而求其次，训练目标变成在已有的训练数据集上建模输入和输出之间的关系。由于训练数据集是对真实数据分布情况的采样，训练数据集上的最优解往往会多少偏离真正的最优解(这里的讨论不考虑模型容量)。</p>
+<p>而在知识蒸馏时，由于我们已经有了一个泛化能力较强的Net-T，我们在利用Net-T来蒸馏训练Net-S时，可以直接让Net-S去学习Net-T的泛化能力。</p>
+<p>一个很直白且高效的迁移泛化能力的方法就是使用softmax层输出的类别的概率来作为“soft target”。</p>
+<ol>
+<li>传统training过程(hard targets): 对ground truth求极大似然</li>
+<li>KD的training过程(soft targets): 用large model的class probabilities作为soft targets</li>
+</ol>
+<p><img src="kd-1.jpg" alt="" title="上图: Hard Target 下图: Soft Target"></p>
+<p><strong>为什么?</strong><br>softmax层的输出，除了正例之外，负标签也带有大量的信息，比如某些负标签对应的概率远远大于其他负标签。而在传统的训练过程(hard target)中，所有负标签都被统一对待。也就是说，KD的训练方式使得每个样本给Net-S带来的信息量大于传统的训练方式。</p>
+<p>举个例子来说明一下: 在手写体数字识别任务MNIST中，输出类别有10个。</p>
+<p><img src="mnist.jpg" alt="" title="MNIST任务"><br>假设某个输入的“2”更加形似”3”，softmax的输出值中”3”对应的概率为0.1，而其他负标签对应的值都很小，而另一个”2”更加形似”7”，”7”对应的概率为0.1。这两个”2”对应的hard target的值是相同的，但是它们的soft target却是不同的，由此我们可见soft target蕴含着比hard target多的信息。并且soft target分布的熵相对高时，其soft target蕴含的知识就更丰富。</p>
+<p><img src="kd-2.png" alt="" title="两个”2“的hard target相同而soft target不同"></p>
+<p>这就解释了为什么通过蒸馏的方法训练出的Net-S相比使用完全相同的模型结构和训练数据只使用hard target的训练方法得到的模型，拥有更好的泛化能力。</p>
+<h2 id="softmax函数"><a href="#softmax函数" class="headerlink" title="softmax函数"></a>softmax函数</h2><p>先回顾一下原始的softmax函数:</p>
+<p>$$ q_{i}=\frac{\exp \left(z_{i}\right)}{\sum_{j} \exp \left(z_{j} \right)} $$</p>
+<p>但要是直接使用softmax层的输出值作为soft target, 这又会带来一个问题: 当softmax输出的概率分布熵相对较小时，负标签的值都很接近0，对损失函数的贡献非常小，小到可以忽略不计。因此”温度”这个变量就派上了用场。</p>
+<p>下面的公式时加了温度这个变量之后的softmax函数:</p>
+<p>$$ q_{i}=\frac{\exp \left(z_{i} / T\right)}{\sum_{j} \exp \left(z_{j} / T\right)} $$</p>
+<ul>
+<li>这里的T就是<strong>温度</strong>。</li>
+<li>原来的softmax函数是T = 1的特例。 T越高，softmax的output probability distribution越趋于平滑，其分布的熵越大，负标签携带的信息会被相对地放大，模型训练将更加关注负标签。</li>
+</ul>
+<h1 id="知识蒸馏的具体方法"><a href="#知识蒸馏的具体方法" class="headerlink" title="知识蒸馏的具体方法"></a>知识蒸馏的具体方法</h1><h2 id="通用的知识蒸馏方法"><a href="#通用的知识蒸馏方法" class="headerlink" title="通用的知识蒸馏方法"></a>通用的知识蒸馏方法</h2><ul>
+<li>第一步是训练Net-T；第二步是在高温T下，蒸馏Net-T的知识到Net-S<br><img src="kd.png" alt="" title="知识蒸馏示意图(来自https://nervanasystems.github.io/distiller/knowledge_distillation.html)"></li>
+</ul>
+<p>训练Net-T的过程很简单，下面详细讲讲第二步:高温蒸馏的过程。高温蒸馏过程的目标函数由distill loss(对应soft target)和student loss(对应hard target)加权得到。示意图如上。</p>
+<p>$$ L=\alpha L_{soft}+\beta L_{hard} $$</p>
+<ul>
+<li><p>$v_i$: Net-T的logits</p>
+</li>
+<li><p>$z_i$: Net-S的logits</p>
+</li>
+<li><p>$p^T_i$: Net-T的在温度=T下的softmax输出在第i类上的值</p>
+</li>
+<li><p>$q^T_i$: Net-S的在温度=T下的softmax输出在第i类上的值</p>
+</li>
+<li><p>$c_i$: 在第i类上的ground truth值,$c_i\in{0,1}$, 正标签取1，负标签取0.</p>
+</li>
+<li><p>$N$: 总标签数量</p>
+</li>
+<li><p>Net-T 和 Net-S同时输入 transfer set (这里可以直接复用训练Net-T用到的training set), 用Net-T产生的softmax distribution (with high temperature) 来作为soft target，Net-S在相同温度T下的softmax输出和soft target的cross entropy就是<strong>Loss函数的第一部分</strong>$L_{soft}$.</p>
+</li>
+</ul>
+<p>$L_{soft}=-\sum_j^N p^T_j\log(q^T_j)$, 其中$p^T_i=\frac{\exp(v_i/T)}{\sum_k^N \exp(v_k/T)}$，$q^T_i=\frac{\exp(z_i/T)}{\sum_k^N \exp(z_k/T)}$</p>
+<ul>
+<li><p>Net-S在温度=1下的softmax输出和ground truth的cross entropy就是<strong>Loss函数的第二部分</strong>$L_{hard}$.<br>$L_{hard}=-\sum_j^N c_j\log(q^1_j)$, 其中$q^1_i=\frac{\exp(z_i)}{\sum_j^N \exp(z_j)}$.</p>
+</li>
+<li><p>第二部分Loss$L_{hard}$的必要性其实很好理解: Net-T也有一定的错误率，使用ground truth可以有效降低错误被传播给Net-S的可能。打个比方，老师虽然学识远远超过学生，但是他仍然有出错的可能，而这时候如果学生在老师的教授之外，可以同时参考到标准答案，就可以有效地降低被老师偶尔的错误“带偏”的可能性。</p>
+</li>
+</ul>
+<p><strong>讨论</strong></p>
+<ul>
+<li>实验发现第二部分所占比重比较小的时候，能产生最好的结果，这是一个经验的结论。一个可能的原因是，由于soft target产生的gradient与hard target产生的gradient之间有与 T 相关的比值。<br>$$L_{soft}=-\sum_j^N p^T_j\log(q^T_j)=-\sum_j^N \frac{\exp(v_i/T)}{\sum_k^N \exp(v_k/T)}\frac{z_i/T}{\sum_k^N \exp(z_k/T)}$$<br>$$\frac{\partial L_{soft}}{\partial z_i}=-\frac{1}{T} \frac{\exp(v_i/T)}{\sum_k^N \exp(v_k/T)}\frac{1}{\sum_k^N \exp(z_k/T)}$$</li>
+</ul>
+<p>$$L_{hard}=-\sum_j^N c_j\log(q^1_j)=-\sum_j^N c_j\frac{z_i}{\sum_k^N \exp(z_k)}$$<br>$$\frac{\partial L_{hard}}{\partial z_i}=-c_i\frac{1}{\sum_k^N \exp(z_k)}$$</p>
+<p>另外，$\frac{1}{\sum_k^N \exp(z_k)} \approx \frac{T}{\sum_k^N \exp(z_k/T)}$。因此在同时使用soft target和hard target的时候，需要在soft target之前乘上$T^{2}$的系数，这样才能保证soft target和hard target贡献的梯度量基本一致。</p>
+<ul>
+<li><strong>注意</strong>: 在Net-S训练完毕后，做inference时其softmax的温度T要恢复到1. </li>
+</ul>
+<h2 id="一种特殊情形-直接match-logits-不经过softmax"><a href="#一种特殊情形-直接match-logits-不经过softmax" class="headerlink" title="一种特殊情形: 直接match logits(不经过softmax)"></a>一种特殊情形: 直接match logits(不经过softmax)</h2><p>直接match logits指的是，直接使用softmax层的输入logits（而不是输出）作为soft targets，需要最小化的目标函数是Net-T和Net-S的logits之间的平方差。</p>
+<p><strong>直接match logits的做法是</strong> $T \rightarrow \infty$ <strong>的情况下的特殊情形。</strong></p>
+<p>由单个case贡献的loss，推算出对应在Net-S每个logit $z_i$ 上的gradient:<br>$$\frac{\partial L_{soft}}{\partial z_{i}}=\frac{1}{T}\left(q_{i}-p_{i}\right)=\frac{1}{T}\left(\frac{e^{z_{i} / T}}{\sum_{j} e^{z_{j} / T}}-\frac{e^{v_{i} / T}}{\sum_{j} e^{v_{j} / T}}\right)$$</p>
+<p>当 $T \rightarrow \infty$ 时，我们使用 $1+x/T$ 来近似 $e^{x/T}$，于是得到<br>$$\frac{\partial L_{soft}}{\partial z_{i}} \approx \frac{1}{T}\left(\frac{1+z_{i} / T}{N+\sum_{j} z_{j} / T}-\frac{1+v_{i} / T}{N+\sum_{j} v_{j} / T}\right)$$</p>
+<p>如果再加上logits是零均值的假设<br>$$\sum_{j} z_{j}=\sum_{j} v_{j}=0$$</p>
+<p>那么上面的公式可以简化成<br>$$\frac{\partial L_{soft}}{\partial z_{i}} \approx \frac{1}{N T^{2}}\left(z_{i}-v_{i}\right)$$</p>
+<p>也就是等价于minimise下面的损失函数<br>$$L_{soft}’=1 / 2\left(z_{i}-v_{i}\right)^{2}$$</p>
+<h1 id="关于”温度”的讨论"><a href="#关于”温度”的讨论" class="headerlink" title="关于”温度”的讨论"></a>关于”温度”的讨论</h1><p>【问题】 我们都知道“蒸馏”需要在高温下进行，那么这个“蒸馏”的温度代表了什么，又是如何选取合适的温度？<br><img src="kd-3.jpg" alt="" title="随着温度T的增大，概率分布的熵逐渐增大"></p>
+<h2 id="温度的特点"><a href="#温度的特点" class="headerlink" title="温度的特点"></a>温度的特点</h2><p>在回答这个问题之前，先讨论一下<strong>温度T的特点</strong></p>
+<ol>
+<li>原始的softmax函数是$T=1$ 时的特例， $T&lt;1$时，概率分布比原始更“陡峭”，$T&gt;1$时，概率分布比原始更“平缓”。</li>
+<li>温度越高，softmax上各个值的分布就越平均（思考极端情况: (i)$T=\infty$, 此时softmax的值是平均分布的；(ii) $T\rightarrow 0$，此时softmax的值就相当于$\argmax$,即最大的概率处的值趋近于1，而其他值趋近于0）</li>
+<li>不管温度T怎么取值，Soft target都有忽略小的 $p_i$ 携带的信息的倾向</li>
+</ol>
+<h2 id="温度代表了什么，如何选取合适的温度？"><a href="#温度代表了什么，如何选取合适的温度？" class="headerlink" title="温度代表了什么，如何选取合适的温度？"></a>温度代表了什么，如何选取合适的温度？</h2><p>温度的高低改变的是Net-S训练过程中对负标签的关注程度: 温度较低时，对负标签的关注，尤其是那些显著低于平均值的负标签的关注较少；而温度较高时，负标签相关的值会相对增大，Net-S会相对多地关注到负标签。</p>
+<p>实际上，负标签中包含一定的信息，尤其是那些值显著<strong>高于</strong>平均值的负标签。但由于Net-T的训练过程决定了负标签部分比较noisy，并且负标签的值越低，其信息就越不可靠。因此温度的选取比较empirical，本质上就是在下面两件事之中取舍:</p>
+<ol>
+<li>从有部分信息量的负标签中学习 –&gt; 温度要高一些</li>
+<li>防止受负标签中噪声的影响 –&gt;温度要低一些</li>
+</ol>
+<p>总的来说，T的选择和Net-S的大小有关，Net-S参数量比较小的时候，相对比较低的温度就可以了（因为参数量小的模型不能capture all knowledge，所以可以适当忽略掉一些负标签的信息）</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>深度压缩之蒸馏模型 - 风雨兼程的文章 - 知乎 <a href="https://zhuanlan.zhihu.com/p/24337627" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24337627</a></li>
+<li>知识蒸馏Knowledge Distillation - 船长的文章 - 知乎 <a href="https://zhuanlan.zhihu.com/p/83456418" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/83456418</a></li>
+<li><a href="https://towardsdatascience.com/knowledge-distillation-simplified-dd4973dbc764" target="_blank" rel="noopener">https://towardsdatascience.com/knowledge-distillation-simplified-dd4973dbc764</a></li>
+<li><a href="https://nervanasystems.github.io/distiller/knowledge_distillation.html" target="_blank" rel="noopener">https://nervanasystems.github.io/distiller/knowledge_distillation.html</a></li>
 </ol>
 
       
@@ -680,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Intro"><span class="nav-number">1.</span> <span class="nav-text">1. Intro</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-知识蒸馏的方法"><span class="nav-number">2.</span> <span class="nav-text">2. 知识蒸馏的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Simplest-way"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. Simplest way</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-直接用logits作为soft-target是distillation的一种特殊情形"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 直接用logits作为soft target是distillation的一种特殊情形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-关于温度T选择的讨论"><span class="nav-number">2.3.</span> <span class="nav-text">2.3. 关于温度T选择的讨论</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文提出的背景"><span class="nav-number">1.1.</span> <span class="nav-text">论文提出的背景:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“思想歧路”"><span class="nav-number">1.2.</span> <span class="nav-text">“思想歧路”</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识蒸馏的理论依据"><span class="nav-number">2.</span> <span class="nav-text">知识蒸馏的理论依据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Teacher-Model和Student-Model"><span class="nav-number">2.1.</span> <span class="nav-text">Teacher Model和Student Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识蒸馏的关键点"><span class="nav-number">2.2.</span> <span class="nav-text">知识蒸馏的关键点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#softmax函数"><span class="nav-number">2.3.</span> <span class="nav-text">softmax函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识蒸馏的具体方法"><span class="nav-number">3.</span> <span class="nav-text">知识蒸馏的具体方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通用的知识蒸馏方法"><span class="nav-number">3.1.</span> <span class="nav-text">通用的知识蒸馏方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一种特殊情形-直接match-logits-不经过softmax"><span class="nav-number">3.2.</span> <span class="nav-text">一种特殊情形: 直接match logits(不经过softmax)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于”温度”的讨论"><span class="nav-number">4.</span> <span class="nav-text">关于”温度”的讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#温度的特点"><span class="nav-number">4.1.</span> <span class="nav-text">温度的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#温度代表了什么，如何选取合适的温度？"><span class="nav-number">4.2.</span> <span class="nav-text">温度代表了什么，如何选取合适的温度？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -700,7 +800,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
