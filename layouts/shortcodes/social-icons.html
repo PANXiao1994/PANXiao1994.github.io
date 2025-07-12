@@ -1,0 +1,13 @@
+<style>
+.social-icons a, .social-icons a:visited, .social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+</style>
+<div class="social-icons" style="margin-bottom:1em;">
+    {{ range site.Params.socialIcons }}
+      <a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me" title="{{ .title | default .name }}">
+        {{ partial "svg.html" . }}
+      </a>
+    {{ end }}
+  </div>

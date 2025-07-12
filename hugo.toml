@@ -1,0 +1,100 @@
+baseURL = 'https://panxiao1994.github.io/'
+languageCode = 'en-us'
+title = "Xiao's Blog"
+theme = "PaperMod"
+
+[params]
+  math = true
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  # profileMode = false
+  [params.profileMode]
+    enabled = true
+    title = "Hi, I'm Xiao! 👋"
+    subtitle = "Welcome to my blog. I do research and product in LLM / GenAI."
+    imageUrl = "/images/avatar.jpg"  # Path to your photo (see step 2)
+    imageTitle = "Xiao Pan"
+    imageWidth = 120
+    imageHeight = 120
+
+[params.homeInfoParams]
+  Title = "Hi there 👋"
+  Content = "Welcome to my academic and professional blog. Please visit the [About](/about/) page for my full profile, research, and CV."
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:panxiao.genai@gmail.com"
+  title = "Email"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/PANXiao1994"
+  title = "GitHub"
+
+[[params.socialIcons]]
+  name = "googlescholar"
+  url = "https://scholar.google.com/citations?user=Q0up5UcAAAAJ&hl=en"
+  title = "Google Scholar"
+
+[[params.socialIcons]]
+  name = "zhihu"
+  url = "https://www.zhihu.com/people/pan-xiao-xiao-66-14"
+  title = "Zhihu"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/xiao-pan-123456abc"
+  title = "LinkedIn"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 20
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 30
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 40
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 50
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+# Suppress warnings
+ignoreLogs = ['warning-goldmark-raw-html']
+
+# Enable search
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# Enable taxonomies
+# [taxonomies]
+#   category = "categories"
+#   tag = "tags"

@@ -1,0 +1,4 @@
+/* Remove underline from social icon links */
+.social-icons a {
+  text-decoration: none !important;
+} 
