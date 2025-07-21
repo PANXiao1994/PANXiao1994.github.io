@@ -14,7 +14,7 @@ draft: false
 *Mar. 2023 – Present*  
 - Contributed to Amazon Rufus, an LLM-powered shopping assistant, by applying scientific insights to develop scalable systems for IFT training data augmentation and automating key evaluation processes, significantly enhancing model development, training data quality, and feature launches.
 
-- Led the development of an innovative product insight feature on Amazon’s shopping website, enhancing the customer experience by simplifying product discovery. Implemented an LLM-powered system that generates concise product summaries, highlighting unique differentiators compared to competing products in search results. This innovation led to an annualized OPS impact of over $100M.
+- Led the development of an innovative product insight feature on Amazon’s shopping website, enhancing the customer experience by simplifying product discovery. Implemented an LLM-powered system that generates concise product summaries, highlighting unique differentiators compared to competing products in search results.
 
 **Applied Scientist at Amazon AWS AI Labs**  
 *Jun. 2022 – Mar. 2023*  
