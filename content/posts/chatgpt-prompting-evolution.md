@@ -1,8 +1,8 @@
 ---
 title: "ChatGPT's Predecessor: The Prompting Paradigm"
 date: 2024-01-30T10:00:00-00:00
-draft: false
-tags: ["chatgpt", "prompting", "language-models", "pre-training", "instruction-tuning"]
+draft: true
+tags: ["chatgpt", "prompting", "language-models", "in-context learning", "instruction-tuning"]
 categories: ["natural-language-processing"]
 math: true
 ---
@@ -15,7 +15,7 @@ The idea of Prompting is a key step for language models to achieve true unificat
 
 ## 1. Prompting: The Latest Paradigm in NLP
 
-Prompting, also known as in-context learning, refers to the “pre-trained-Prompt” paradigm in NLP, which is also a parameter-efficient (parameter-efficient) learning method. However, limiting the understanding of Prompting solely as a parameter-efficient learning approach is a narrow view. To truly grasp the essence of Prompting, it’s best to approach it from a higher perspective.
+Prompting, also known as in-context learning in NLP, which is also a parameter-efficient learning method. However, limiting the understanding of prompting solely as a parameter-efficient learning approach is a narrow view. To truly grasp the essence of Prompting, it’s best to approach it from a higher perspective.
 
 Let me begin by stating this:
 
@@ -64,7 +64,7 @@ The Prompting method was first introduced in 2020 alongside GPT-3. The Prompt pa
 
 From these examples, we can easily see that the Prompt paradigm has the following characteristics: it does not require task-specific data for training and does not need to adjust model parameters. The success of Prompting proves that, when the model and training data are large enough, the model itself is close to an "encyclopedia", and Prompting is the key to unlocking the knowledge within this "encyclopedia."
 
-In just five years, from GPT-1 to GPT-3.5, the model has grown 3000 times larger, and the upcoming GPT-4 will have 100 trillion parameters.
+In just five years, from GPT-1 (117M parameters) to GPT-3.5 (175B parameters), the model has grown 1000+ times larger, and the GPT-4 has 1.2 trillion parameters (updated on 2025).
 
 ## 3. Classification of Prompting Methods
 
@@ -95,7 +95,7 @@ Having discussed all this, it’s clear why the Prompting technique evolved into
 
 **In one sentence**: The Prompting technique breaks the conventional definition of "tasks," making it possible to implement composite tasks (what researchers call "zero-shot"). Most "tasks" in everyday life are not neatly categorized into independent sub-tasks as in traditional NLP, so Prompting’s ability to ignore the task itself is the fundamental reason it evolved into ChatGPT.
 
-The base model used in ChatGPT is GPT-3.5, which already achieves impressive results. The upcoming GPT-4 has several hundred times more parameters than GPT-3.5.
+The base model used in ChatGPT is GPT-3.5, which already achieves impressive results.
 
 The birth and success of Prompting and ChatGPT herald the beginning of a new era: the independent research on NLP sub-tasks defined by humans will gradually fade into history.
 

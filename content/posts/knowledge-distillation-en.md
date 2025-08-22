@@ -2,8 +2,8 @@
 title: "Introduction to Knowledge Distillation"
 date: 2025-06-30T12:00:00-00:00
 draft: true
-tags: ["knowledge distillation", "model compression", "teacher-student", "deep learning"]
-categories: ["machine-learning", "nlp", "knowledge-distillation"]
+tags: ["knowledge distillation", "model compression", "teacher-student"]
+categories: ["natural-langauge-processing"]
 math: true
 ---
 
