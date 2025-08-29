@@ -1,11 +1,10 @@
 ---
 title: "Introduction to Knowledge Distillation"
 date: 2025-06-30T12:00:00-00:00
-draft: true
 tags: ["knowledge distillation", "model compression", "teacher-student"]
 categories: ["natural-langauge-processing"]
 math: true
-ShowToc: true   # show ToC for this post
+ShowToc: true
 ---
 
 **Knowledge Distillation (KD)** is a model compression technique, popularized by Hinton et al. in their 2015 paper "[Distilling the Knowledge in a Neural Network](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://arxiv.org/abs/1503.02531&ved=2ahUKEwjp-rfm5Z6PAxWIHjQIHVDbCnUQFnoECBcQAQ&usg=AOvVaw08geIeQQNVEHwGV6len_qi)". The core idea is to transfer (or "distill") the knowledge from a large, complex model (the "teacher") to a smaller, simpler model (the "student"), enabling efficient deployment without significant loss in performance. 
