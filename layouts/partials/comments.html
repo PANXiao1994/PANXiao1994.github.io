@@ -1,0 +1,25 @@
+{{- $g := .Site.Params.giscus -}}
+{{- if $g }}
+<div id="comments">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="{{ $g.repo }}"
+    data-repo-id="{{ $g.repo_id }}"
+    data-category="{{ $g.category }}"
+    data-category-id="{{ $g.category_id }}"
+    data-mapping="{{ default "pathname" $g.mapping }}"
+    data-strict="{{ default "0" $g.strict }}"
+    data-reactions-enabled="{{ default "1" $g.reactions_enabled }}"
+    data-emit-metadata="{{ default "0" $g.emit_metadata }}"
+    data-input-position="{{ default "bottom" $g.input_position }}"
+    data-theme="{{ default "preferred_color_scheme" $g.theme }}"
+    data-lang="{{ default "en" $g.lang }}"
+    data-loading="{{ default "lazy" $g.loading }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <noscript>Enable JavaScript to view comments.</noscript>
+</div>
+{{- else }}
+<!-- giscus not configured -->
+{{- end }}

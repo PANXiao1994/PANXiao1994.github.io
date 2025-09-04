@@ -5,6 +5,7 @@ theme = "PaperMod"
 
 [params]
   math = true
+  comments = true
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = true
@@ -23,6 +24,20 @@ theme = "PaperMod"
     imageTitle = "Xiao Pan"
     imageWidth = 120
     imageHeight = 120
+
+[params.giscus]
+  repo = "PANXiao1994/blog-comments"
+  repoID = "R_kgDOPmQ-fQ"
+  category = "General"
+  categoryID = "DIC_kwDOPmQ-fc4Cuur7"
+  mapping = "pathname"      # or "url", "title"
+  strict = "0"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "bottom"  # "top" or "bottom"
+  theme = "preferred_color_scheme"
+  lang = "en"
+  lazyLoading = true
 
 [params.homeInfoParams]
   Title = "Hi there 👋"
