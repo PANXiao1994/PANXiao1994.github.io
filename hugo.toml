@@ -26,18 +26,18 @@ theme = "PaperMod"
     imageHeight = 120
 
 [params.giscus]
-  repo = "PANXiao1994/blog-comments"
-  repoID = "R_kgDOPmQ-fQ"
-  category = "General"
-  categoryID = "DIC_kwDOPmQ-fc4Cuur7"
-  mapping = "pathname"      # or "url", "title"
-  strict = "0"
-  reactionsEnabled = "1"
-  emitMetadata = "0"
-  inputPosition = "bottom"  # "top" or "bottom"
-  theme = "preferred_color_scheme"
-  lang = "en"
-  lazyLoading = true
+  repo        = "PANXiao1994/blog-comments"
+  repo_id     = "R_kgDOPmQ-fQ"
+  category    = "General"
+  category_id = "DIC_kwDOPmQ-fc4Cuur7"
+  mapping     = "pathname"
+  strict      = "0"
+  reactions_enabled = "1"
+  emit_metadata     = "0"
+  input_position    = "bottom"
+  theme       = "preferred_color_scheme"
+  lang        = "en"
+  loading     = "lazy"   # not a boolean; must be the string "lazy"
 
 [params.homeInfoParams]
   Title = "Hi there 👋"
