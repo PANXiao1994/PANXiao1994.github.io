@@ -7,6 +7,9 @@ draft: false
 
 {{< social-icons >}}
 
+## What I am building?
+**Parently - Trusted partner for parenting milestones**
+- Parently is a proactive AI parenting assistant that guides parents through their child’s milestones. Unlike traditional shopping platforms, Parently starts with real parenting challenges — offering timely, personalized guidance and recommending products only when they truly add value. By anticipating developmental needs, helping parents build confidence, and collecting authentic feedback through conversation, Parently creates a trusted loop of guidance and solutions. Please refer to the [link](https://drive.google.com/file/d/1YTE3ll5OE5KFRLvWD0c06U536ZHtrRJM/view?usp=drive_link) for more details.
 
 ## Career Overview
 
@@ -14,7 +17,7 @@ draft: false
 *Mar. 2023 – Present*  
 - Contributed to Amazon Rufus, an LLM-powered shopping assistant, by applying scientific insights to develop scalable systems for IFT training data augmentation and automating key evaluation processes, significantly enhancing model development, training data quality, and feature launches.
 
-- Led the development of an innovative product insight feature on Amazon’s shopping website, enhancing the customer experience by simplifying product discovery. Implemented an LLM-powered system that generates concise product summaries, highlighting unique differentiators compared to competing products in search results. This innovation led to an annualized OPS impact of over $100M.
+- Led the development of an innovative product insight feature on Amazon’s shopping website, enhancing the customer experience by simplifying product discovery. Implemented an LLM-powered system that generates concise product summaries, highlighting unique differentiators compared to competing products in search results.
 
 **Applied Scientist at Amazon AWS AI Labs**  
 *Jun. 2022 – Mar. 2023*  
