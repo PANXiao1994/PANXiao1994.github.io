@@ -9,7 +9,25 @@ draft: false
 
 ## What I am building?
 **Parently - Trusted partner for parenting milestones**
-- Parently is a proactive AI parenting assistant that guides parents through their child’s milestones. Unlike traditional shopping platforms, Parently starts with real parenting challenges — offering timely, personalized guidance and recommending products only when they truly add value. By anticipating developmental needs, helping parents build confidence, and collecting authentic feedback through conversation, Parently creates a trusted loop of guidance and solutions. Please refer to the [link](https://drive.google.com/file/d/1YTE3ll5OE5KFRLvWD0c06U536ZHtrRJM/view?usp=drive_link) for more details.
+- Parently is a free-to-use AI parenting assistant that feels just like chatting with a friend — someone who understands your parenting journey and guides you through each milestone. By building a personalized child profile, Parently predicts upcoming developmental stages and provides timely, tailored guidance that evolves with your family’s needs. Through natural conversations and continuous feedback, it creates a trusted loop of learning and support — helping parents feel more confident and prepared every step of the way. For more details, please see the [overview deck](https://drive.google.com/file/d/1YTE3ll5OE5KFRLvWD0c06U536ZHtrRJM/view?usp=drive_link) for more details.
+
+## What I’m good at
+
+- **Training & deploying AI/LLM systems** end-to-end (data → model → eval → rollout)
+- **Large-scale data analysis** and experimentation frameworks
+- **E-commerce × GenAI**: insights on real pain points and where GenAI *actually* helps
+- **Turning research into product**: fast iteration loops, quality bars, and guardrails
+
+## How I can help (and what I love to collaborate on)
+
+- Mentorship on **LLM applications**, **scalable AI pipelines**, and **product validation**
+- Sharing **e-commerce + GenAI** learnings (what works, what doesn’t)
+- Collaborating on **early-stage business model & positioning** for AI products
+- Thoughtful intros to **engineers/researchers** in my network when helpful
+
+If you’re building human-centered AI or exploring adjacent spaces, I’d love to chat.
+
+---
 
 ## Career Overview
 
