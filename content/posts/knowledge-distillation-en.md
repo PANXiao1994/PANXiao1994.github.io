@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Knowledge Distillation"
-date: 2025-06-30T12:00:00-00:00
+date: 2020-02-05T12:00:00-00:00
 tags: ["knowledge distillation", "model compression", "teacher-student"]
 categories: ["natural-langauge-processing"]
 math: true
@@ -492,3 +492,26 @@ $$
 
 - In general, the choice of T should reflect the **capacity of Net-S**.  
   When Net-S is **small**, a **relatively lower temperature** often suffices (a small model can’t capture all knowledge anyway, so it’s acceptable to ignore some negative-class information).
+
+## Citation
+
+Cite as:
+
+> Pan, Xiao. (Feb 2020). “Introduction to Knowledge Distillation”. Xiao's Blog. https://panxiao1994.github.io/posts/knowledge-distillation-en/.
+
+Or
+```
+@article{pan2020kdblog,
+  title   = "Introduction to Knowledge Distillation",
+  author  = "Pan, Xiao",
+  journal = "Introduction to Knowledge Distillation",
+  year    = "2020",
+  month   = "Feb",
+  url     = "https://panxiao1994.github.io/posts/knowledge-distillation-en/"
+}
+```
+
+## References
+[1] Hinton et al. [Distilling the Knowledge in a Neural Network.” arXiv preprint](https://arxiv.org/abs/1503.02531) (2015).
+
+[2] Intel AI Lab. [Knowledge Distillation.](https://intellabs.github.io/distiller/knowledge_distillation.html)
