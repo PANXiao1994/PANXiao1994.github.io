@@ -504,7 +504,7 @@ Or
 @article{pan2020kdblog,
   title   = "Introduction to Knowledge Distillation",
   author  = "Pan, Xiao",
-  journal = "Introduction to Knowledge Distillation",
+  journal = "https://panxiao1994.github.io",
   year    = "2020",
   month   = "Feb",
   url     = "https://panxiao1994.github.io/posts/knowledge-distillation-en/"
